@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Here's the Index Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Fruits Index Page - Whoohoo!</h1>
+        <ul>
+            <% for(let i = 0; i < fruits.length; i++){ %>
+                    <li>
+                        <%= fruits[i].name %>  
+                        <%= fruits[i].color %> 
+                        <% if(fruits[i].readyToEat){ %>
+                            Ready to Eat
+                             <% } else { %>
+                            Not Ready to Eat
+                        <% } %>
+                        <!--This is where our Delete form will go -->
+                        <form action="/fruits/<%= fruits[i].id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
